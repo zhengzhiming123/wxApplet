@@ -1,0 +1,18 @@
+<!--student.wxml-->
+<view class="content">
+  <view class="item">
+    <image class="item_pic" mode="widthFix" src="{{gradeInfo.images}}" />
+    <view class="course_name">{{gradeInfo.name}}<text class="classes">{{classInfo.name}}</text></view>
+  </view>
+  
+  <view class="student_box">
+    <view class="list" wx:for="{{studentList}}" wx:key="{{item.id}}">
+    <navigator url="../task_history/task_history?id={{item.id}}">
+      <image class="avatar" mode="widthFix" src="{{item.avatar}}"  />
+      <text class="name">{{item.name}} {{item.age}}岁</text>
+      <image class="sex_icon" mode="widthFix" src="{{item.gender==0?'/images/male-icon.png':'/images/female-icon.png'}}" />
+      <image class="arrow_icon" mode="widthFix" src="/images/arrow-right.png" />
+    </navigator>
+    </view>
+  </view>
+</view>

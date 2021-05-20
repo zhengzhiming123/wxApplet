@@ -1,0 +1,77 @@
+/**integral.wxss**/
+page{
+  background: #f5f5f5;
+  border-top: 1px solid #d5d5d5;
+}
+image{
+  height: auto;
+}
+.head{
+  height: 120rpx;
+}
+.date_picker{
+  display: inline-block;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 20rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #000;
+}
+.date_icon{
+  width: 40rpx;
+  margin-right: 10px;
+  vertical-align: bottom
+}
+.statistics{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.content{
+  background: #fff;
+  padding-left: 30rpx;
+}
+.item{
+  display: flex;
+  height: 120rpx;
+  border-bottom: 1px solid #e6e6e6;
+}
+.integral_icon{
+  width: 70rpx;
+  margin-top: 30rpx;
+}
+.integral_info{
+  padding: 20rpx 20rpx 0 30rpx;
+  flex-grow: 1;
+}
+.item_name{
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+}
+.item_date{
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 5px;
+}
+.integral_num{
+  float: right;
+  font-size: 30rpx;
+  color: #4956e0
+}
+.integral_num.subtract{
+  color: #fc8919
+}
+
+.nodata_tips{
+  margin-top: 100rpx;
+  text-align: center;
+}
+.nodata_tips image{
+  width: 300rpx;
+}

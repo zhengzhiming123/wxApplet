@@ -1,0 +1,85 @@
+<!--local_recording.wxml-->
+<view class="box">
+  <view class="date">2019年05月15日</view>
+  <view class="list">
+    <view class="recording">
+      <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+      龟兔赛跑作业
+    </view>
+    <text class="duration">01:20</text>
+    <view class="btn_wrap">
+      <image class="play_btn" mode="widthFix" src="/images/play-icon.png" />
+      <view class="line"></view>
+      <image class="upload_icon" mode="widthFix" src="/images/upload-icon.png" />
+      <view class="line"></view>
+      <view class="share_box">
+        <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+        <button open-type="share" class="share_btn">分享</button>
+      </view>
+      <view class="line"></view>
+      <image class="delete_icon" mode="widthFix" src="/images/delete-icon.png" />
+    </view>
+  </view>
+  <view class="list">
+    <view class="recording">
+      <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+      龟兔赛跑作业
+    </view>
+    <text class="duration">01:20</text>
+    <view class="btn_wrap">
+      <image class="play_btn" mode="widthFix" src="/images/play-icon.png" />
+      <view class="line"></view>
+      <image class="upload_icon" mode="widthFix" src="/images/upload-icon.png" />
+      <view class="line"></view>
+      <view class="share_box">
+        <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+        <button open-type="share" class="share_btn">分享</button>
+      </view>
+      <view class="line"></view>
+      <image class="delete_icon" mode="widthFix" src="/images/delete-icon.png" />
+    </view>
+  </view>
+</view>
+
+<!--local_recording.wxml-->
+<view class="box">
+  <view class="date">2019年05月14日</view>
+  <view class="list">
+    <view class="recording">
+      <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+      龟兔赛跑作业
+    </view>
+    <text class="duration">01:20</text>
+    <view class="btn_wrap">
+      <image class="play_btn" mode="widthFix" src="/images/play-icon.png" />
+      <view class="line"></view>
+      <image class="upload_icon" mode="widthFix" src="/images/upload-icon.png" />
+      <view class="line"></view>
+      <view class="share_box">
+        <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+        <button open-type="share" class="share_btn">分享</button>
+      </view>
+      <view class="line"></view>
+      <image class="delete_icon" mode="widthFix" src="/images/delete-icon.png" />
+    </view>
+  </view>
+  <view class="list">
+    <view class="recording">
+      <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+      龟兔赛跑作业
+    </view>
+    <text class="duration">01:20</text>
+    <view class="btn_wrap">
+      <image class="play_btn" mode="widthFix" src="/images/play-icon.png" />
+      <view class="line"></view>
+      <image class="upload_icon" mode="widthFix" src="/images/upload-icon.png" />
+      <view class="line"></view>
+      <view class="share_box">
+        <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+        <button open-type="share" class="share_btn">分享</button>
+      </view>
+      <view class="line"></view>
+      <image class="delete_icon" mode="widthFix" src="/images/delete-icon.png" />
+    </view>
+  </view>
+</view>

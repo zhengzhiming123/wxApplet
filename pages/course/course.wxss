@@ -1,0 +1,134 @@
+/**course.wxss**/
+page{
+  background: #f5f5f5;
+  border-top: 1px solid #d5d5d5;
+}
+.head{
+  background: #fff;
+  padding: 30rpx;
+}
+.course_pic{
+  width: 100%;
+  height: 300rpx;
+  border-radius: 10px;
+}
+.course_info{
+  display: flex;
+  margin-top: 26rpx;
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  padding-left: 20rpx;
+}
+.section_num{
+  color: #b8b8b8;
+}
+.score_box{
+  text-align: right;
+  margin-right: 20rpx;
+  flex-grow: 1;
+}
+.star{
+  width: 36rpx;
+  margin-right: 5px;
+}
+
+.content{
+  margin: 20rpx;
+  background: #fff;
+}
+.cont_hd{
+  padding: 30rpx;
+  border-bottom: 1px solid #eee;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.cont_hd .line{
+  display: inline-block;
+  width: 10rpx;
+  height: 35rpx;
+  background: #4956e0;
+  border-radius: 5px;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+.course_count{
+  float: right;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #888;
+}
+.item{
+  margin-left: 30rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  padding: 30rpx 0;
+}
+.course_order{
+  width:80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  position: relative;
+  font-size: 40rpx;
+  color: #4956e0;
+  margin-top: 5rpx;
+}
+.course_order image{
+  width: 100%;
+  height: 100%;
+}
+.order_num{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.info{
+  flex-grow: 1;
+  padding-left: 30rpx;
+  position: relative;
+}
+.arrow_icon{
+  position: absolute;
+  right: 10rpx;
+  top: 30rpx;
+  width: 18rpx;
+  height: 38rpx;
+}
+.info_top{
+  font-size: 24rpx;
+  color: #000;
+}
+.course_name{
+  font-size: 30rpx;
+  color: #000;
+}
+.status{
+  font-size: 24rpx;
+  color: #999;
+}
+.done{
+  color: #000;
+}
+.info .star_icon{
+  width: 30rpx;
+  vertical-align: -2px;
+  margin-left: 3px;
+}
+.list_box{
+  margin-top: 10rpx;
+  display: flex;
+}
+.list{
+  font-size: 26rpx;
+  color: #a0a0a0;
+  width: 22%;
+}
+.checkbox_icon{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: bottom
+}

@@ -1,0 +1,88 @@
+/**classes.wxss**/
+.checkin_icon{
+  position: fixed;
+  right: 60rpx;
+  bottom: 80rpx;
+  width: 90rpx;
+}
+.checkin_image{
+  width: 100%;
+}
+.mask{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+}
+.signin_layer{
+  width: 540rpx;
+  position: fixed;
+  left: 50%;
+  top: 190rpx;
+  margin-left: -270rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.signin_hd{
+  position: relative;
+  width: 100%;
+}
+.signin-bg{
+  width: 100%;
+}
+.signin_title{
+  position: absolute;
+  left: 0;
+  top: 22rpx;
+  width: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+}
+.close_icon{
+  float: right;
+  width: 20rpx;
+  margin-right: 10px;
+  margin-top:10rpx;
+}
+.layer_cont{
+  padding: 45rpx 56rpx;
+}
+.integral_tit{
+  font-size: 32rpx;
+  color: #000;
+  text-align: center;
+}
+.integral_box{
+  margin-top: 30rpx;
+  font-size: 38rpx;
+  color: #f0bb00;
+  text-align: center
+}
+.integral_star{
+  width: 36rpx;
+  vertical-align: -3rpx;
+}
+.signin_btn{
+  width: 425rpx;
+  height: 80rpx;
+  position: relative;
+  margin-top: 50rpx;
+}
+.signin_btn_image{
+  width: 100%;
+}
+.signin_text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+}

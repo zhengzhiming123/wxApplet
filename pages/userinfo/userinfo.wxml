@@ -1,0 +1,58 @@
+<!--userinfo.wxml-->
+<view class="content">
+  <!-- <view class="item">
+    <view class="item_tit">头像</view>
+    <view class="item_val"><image class="avatar" mode="widthFix" src="/images/avatar.png" /></view>
+  </view> -->
+  <view class="item">
+    <view class="item_tit">姓名</view>
+    <view class="item_val"><input class="item_ipt" type="text" value="{{userInfo.name}}" bindchange="bindNameChange" /></view>
+  </view>
+  <!-- <view class="item">
+    <view class="item_tit">昵称</view>
+    <view class="item_val"><input class="item_ipt" type="text" value="{{userInfo.nickName}}" bindchange="bindNickNameChange" /></view>
+  </view> -->
+  <view class="item">
+    <view class="item_tit">出生日期</view>
+    <view class="item_val">
+      <picker mode="date" class="info_picker" value="{{userInfo.birthday}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{userInfo.birthday}}
+          <image class="date_icon" mode="widthFix" src="/images/date-icon.png"></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">性别</view>
+    <view class="item_val">
+      <picker mode="selector" class="info_picker" value="{{userInfo.gender}}" range="{{genderArray}}" range-key="name" bindchange="bindGenderChange">
+        <view class="picker">
+          {{userInfo.gender==0?'男':'女'}}
+          <image class="arrow_icon" mode="widthFix" src="/images/arrow-down.png" />
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">手机号</view>
+    <view class="item_val"><input class="item_ipt" type="text" value="{{userInfo.mobile}}" bindchange="bindMobileChange" /></view>
+  </view>
+  <view class="item">
+    <view class="item_tit">学校</view>
+    <view class="item_val"><input class="item_ipt" type="text" value="{{userInfo.school}}" bindchange="bindSchoolChange" /></view>
+  </view>
+  <view class="item" wx:if="{{userInfo.isStudent}}">
+    <view class="item_tit">学习阶段</view>
+    <view class="item_val">幼儿一阶</view>
+  </view>
+  <view class="item" wx:if="{{userInfo.isStudent}}">
+    <view class="item_tit">学习班级</view>
+    <view class="item_val">{{userInfo.className||''}}</view>
+  </view>
+</view>
+
+<view class="save_btn_box" bindtap='updateUserInfo'>
+  <image class="save_btn_bg" src="/images/reg-btn-bg.png"></image>
+  保存
+</view>

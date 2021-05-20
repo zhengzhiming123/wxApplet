@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view class="outer_box">
+  
+  <!-- <view class="search_box">
+    <image class="search_icon" src="../../images/search-icon.png" mode="widthFix"></image>
+    <text>请输入要搜索的内容</text>
+  </view> -->
+
+  <view class="banner">
+    <swiper indicator-dots="true" indicator-color="#dadada" indicator-active-color="#fff" autoplay="true" interval="5000" duration="300" circular="false" class="banner"> 
+      <swiper-item wx:for="{{bannerList}}" wx:key="id"> 
+        <image src="{{item.image}}" class="banner_img" mode="widthFix"/> 
+      </swiper-item> 
+    </swiper>
+  </view>
+
+  <view wx:if="{{isStudent}}">
+    <view class="course_box">
+      <view class="course_title">
+        <text class="line"></text>
+        {{gradeName}}课程
+        <view class="course_count"><text class="current">{{gradeInfo.finishNum}}</text>/{{gradeInfo.lessonNum}}节</view>
+      </view>
+      <view class="course_cont">
+        <view class="course_list" wx:for="{{courseList}}" wx:key="{{item.id}}">
+          <navigator url="../course/course?id={{item.id}}">
+            <image class="course_pic" src="{{item.images}}" mode="widthFix"></image>
+            <view class="course_info">
+              {{item.name}}
+              <text wx:if="{{item.lessonNum == 0}}" class="section_none">暂无课时</text>
+              <text wx:elif="{{item.lessonNum != item.finishNum}}" class="section_num">{{item.finishNum}}/{{item.lessonNum}}节</text>
+              <text wx:else class="section_finish">已完成学习</text>
+              <!-- <view class="score_box">
+                <image class="star" src="../../images/star-hot-icon.png" mode="widthFix"></image>
+                <image class="star" src="../../images/star-hot-icon.png" mode="widthFix"></image>
+                <image class="star" src="../../images/star-hot-icon.png" mode="widthFix"></image>
+                <image class="star" src="../../images/star-hot-icon.png" mode="widthFix"></image>
+                <image class="star" src="../../images/star-icon.png" mode="widthFix"></image>
+              </view> -->
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <view class="no_tips">
+      `没有更多课程啦`
+    </view>
+
+    <view class="other_btn">
+      <navigator url="../gradation/gradation">
+        <text>查看其他阶课程</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!--游客访问信息-->
+  <view wx:if="{{!isStudent}}">
+    <view class="content">
+      <view class="item" wx:for="{{gradeList}}" wx:key="id">
+        <image class="item_pic" mode="widthFix" src="{{item.images}}" />
+        <view class="course_name" bindtap='gotoGrade' data-id="{{item.id}}" data-name="{{item.name}}">
+          <text>{{item.name}}</text>
+          <image class="arrow_icon" mode="widthFix" src="/images/arrow-right.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--签到-->
+<checkIn id="checkIn"></checkIn>
+

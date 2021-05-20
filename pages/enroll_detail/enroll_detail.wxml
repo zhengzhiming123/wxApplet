@@ -1,0 +1,70 @@
+<!--pages/enroll/enroll.wxml-->
+<view class="content">
+  <view class="item">
+    <view class="item_tit">考生姓名</view>
+    <view class="item_val">李明</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考生性别</view>
+    <view class="item_val">李明</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">证件类别</view>
+    <view class="item_val">李明</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">身份证号</view>
+    <view class="item_val">350111111111111111</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">出生日期</view>
+    <view class="item_val">1997-01-01</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考生国籍</view>
+    <view class="item_val">中国</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考生民族</view>
+    <view class="item_val">汉</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">就读学校</view>
+    <view class="item_val">人民小学</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">联系地址</view>
+    <view class="item_val">中国</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">二寸照片</view>
+    <view class="item_val">
+      <image class="enroll_pic" src="/images/enroll-pic.jpg"></image>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="item">
+    <view class="item_tit">考试级别</view>
+    <view class="item_val">1</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">机构地点</view>
+    <view class="item_val">福建省福州市鼓楼区</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">确认地点</view>
+    <view class="item_val">中国</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考试地址</view>
+    <view class="item_val">中国</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">联系手机</view>
+    <view class="item_val">18811111111</view>
+  </view>
+</view>
+
+

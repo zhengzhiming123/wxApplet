@@ -1,0 +1,12 @@
+<!--gradation.wxml-->
+<view class="content">
+  <view class="item" wx:for="{{gradeList}}" data-id="{{item.id}}" wx:key="{{item.id}}" bindtap="gotoNext">
+    
+      <image class="item_pic" mode="widthFix" src="{{item.images}}" />
+      <view class="course_name">
+        {{item.name}}
+        <image class="arrow_icon" mode="widthFix" src="/images/arrow-right.png" />
+      </view>
+    
+  </view>
+</view>

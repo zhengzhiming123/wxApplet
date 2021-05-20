@@ -1,0 +1,82 @@
+<!--task_history.wxml-->
+<view class="content" wx:if="{{taskHistory.length>0}}">
+  <view class="item" wx:for="{{taskHistory}}" wx:key="{{item.id}}">
+    <view class="item_info">
+      <view class="time_line"></view>
+      <image class="time_dot" mode="widthFix" src="/images/time-dot.png" />
+      <view class="date">
+        {{item.formatDate}}
+        <image class="support_icon" bindtap="onLike" data-id="{{item.id}}" data-index="{{index}}" mode="widthFix" src="/images/support-icon.png" />
+        <!-- <image class="support_icon" mode="widthFix" src="/images/support-icon-full.png" /> -->
+        <text class="support_num">{{item.likeNum}}</text>
+      </view>
+
+      <view class="audio_box" wx:if="{{item.workType == 0}}">
+        <view class="reading">
+          <view class="course_name">{{item.courseName}}</view>
+          <image class="reading_icon" mode="widthFix" src="/images/read-icon.png" />
+        </view>
+      </view>
+      <!--音频-->
+      <view class="audio_box" wx:if="{{item.workType == 2}}">
+        <view class="recording" bindtap="playAudio" data-id="{{item.id}}" data-url="{{item.url}}">
+          <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+          {{item.courseName}}
+          <image class="play_btn" mode="widthFix" src="/images/audio-play-icon.png" hidden="{{currentAudioId==item.id&&playFlag}}" />
+          <image class="play_btn" mode="widthFix" src="/images/audio-pause-icon.png" wx:if="{{currentAudioId==item.id&&playFlag}}" />
+        </view>
+        <view class="btn_wrap">
+          <view class="share_box" bindtap="chooseShareType" data-id="{{item.id}}" data-type="{{item.workType}}">
+            <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+      <!--视频-->
+      <view class="video_info" wx:if="{{item.workType==1}}">
+        <view class="video_box">
+          <view class="course_name">{{item.courseName}}</view>
+          <view class="video_wrap">
+            <!-- <view bindtap="videoPlay" class="video_mask" data-id="{{item.id}}"></view> -->
+            <video id="{{item.id}}" class="course_video" src="{{item.url}}" poster="" custom-cache='false' controls='true' objectFit='cover' bindplay="videoPlay"></video>
+          </view>
+        </view>
+        <view class="btn_wrap">
+          <view class="share_box" bindtap="chooseShareType" id="{{item.id}}" data-type="{{item.workType}}">
+            <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="no-data" wx:if="{{taskHistory.length == 0}}">
+  <image mode="widthFix" src="/images/no-work-icon.png" />
+</view>
+
+<view class="share_mask" wx:if="{{lessonInfo.workType!=0}}" hidden="{{!showShareLayer}}" bindtap="closeShareLayer"></view>
+<view class="share_layer" wx:if="{{lessonInfo.workType!=0}}" hidden="{{!showShareLayer}}">
+  <view class="share_layer_title">分享给好友</view>
+  <view class="share_layer_cont">
+    <view  class="share_layer_list">
+      <image class="share_method_icon" mode="widthFix" src="/images/share-weixin-icon.png" />
+      <button id="{{item.id}}" data-type="{{item.workType}}" open-type="share" class="share_btn"></button>
+      <view class="share_text">微信</view>
+    </view>
+    <view  class="share_layer_list" bindtap="shareFriendCirlce">
+      <image class="share_method_icon" mode="widthFix" src="/images/share-friend-circle.png" />
+      <view class="share_text">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view class="share_fcircle_mask" hidden="{{!showFcircleLayer}}" bindtap="handleCloseFcircleLayer"></view>
+<view class="share_fcircle_layer" hidden="{{!showFcircleLayer}}">
+  <view class="share_fcircle_content">
+    <image class="share_image" src="{{share_image_url}}" />
+  </view>
+  <view class="footer">
+    <view class="save" bindtap="handleSaveShareImg">保存到相册</view>
+    <view class="close" bindtap="handleCloseFcircleLayer">关闭</view>
+  </view>
+</view>

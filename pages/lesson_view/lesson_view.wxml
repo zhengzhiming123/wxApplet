@@ -1,0 +1,161 @@
+<!--course_view.wxml-->
+<view class="navbar" wx:if="{{navNum > 1}}">
+  <view wx:if="{{lessonInfo.isVideo==1}}" class="nav_list {{navIndex==0?'current':''}}" bindtap="changeNav" data-index="0">
+    <text class="nav_text">视频</text>
+  </view>
+  <view wx:if="{{lessonInfo.isVoice==1}}" class="nav_list {{navIndex==1?'current':''}}" bindtap="changeNav" data-index="1">
+    <text class="nav_text">音频</text>
+  </view>
+  <view wx:if="{{lessonInfo.isImage==1}}" class="nav_list {{navIndex==2?'current':''}}" bindtap="changeNav" data-index="2">
+    <text class="nav_text">图片</text>
+  </view>
+  <view wx:if="{{lessonInfo.isText==1}}" class="nav_list {{navIndex==3?'current':''}}" bindtap="changeNav" data-index="3">
+    <text class="nav_text">文字</text>
+  </view>
+</view>
+<view class="content_box">
+  <view class="content" hidden="{{navIndex != 0}}" wx:if="{{lessonInfo.isVideo==1}}">
+    <video class="course_video" id='coursevideo' autoplay='true' src="{{lessonInfo.videoUrl}}" poster="{{lessonInfo.imageUrl}}" custom-cache='false' controls='true' objectFit='cover' bindplay="videoPlay"></video>
+  </view>
+  <view class="audio_wrap" hidden="{{navIndex != 1}}"  wx:if="{{lessonInfo.isVoice==1}}">
+    <image class="autio_bg" src="/images/audio-bg.jpg" />
+    <view class="audioControls">
+      <view class="flex">
+        <view class="bottom" catchtap="playAudio">
+          <view class="audio_control_icon" wx:if="{{isPlayAudio}}"><image mode="widthFix" src="/images/audio-pause-icon.png" /></view>
+          <view class="audio_control_icon" wx:else><image mode="widthFix" src="/images/audio-play-icon.png" /></view>
+        </view>
+        <view class="slider">
+          <slider bindchange="sliderChange" active-color="red" block-size="12" value="{{audioTime}}"></slider>
+        </view>
+        <view class="time">
+          {{showTime1}}/{{showTime2}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <swiper indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4956e0" autoplay="false" interval="5000" duration="300" circular="false" class="pic_box" hidden="{{navIndex != 2}}"  wx:if="{{lessonInfo.isImage==1}}"> 
+    <swiper-item wx:for="{{lessonInfo.arrImages}}" wx:key="{{index}}"> 
+      <image src="{{item}}" class="course_img" data-index="{{index}}" bindtap="perviewImg" /> 
+    </swiper-item> 
+  </swiper> 
+  <view class="text_box" hidden="{{navIndex != 3}}" wx:if="{{lessonInfo.isText==1}}">
+    <view class="text_cont">
+       <scroll-view scroll-y class="course_text">
+          {{lessonInfo.content}}
+       </scroll-view>
+    </view>
+  </view>
+</view>
+
+<view class="course_info">
+  <view class="course_name">{{lessonInfo.name}} {{lessonInfo.subName}}</view>
+  <view class="teacher_box">教师：<text class="teacher">{{lessonInfo.teacherName}}</text></view>
+</view>
+
+<view class="record_box" wx:if="{{!work.isFinish}}">
+  <view class="btn_wrap" wx:if="{{lessonInfo.workType==0}}">
+    <view class="record_btn" bindtap="submitWork">
+      <image mode="widthFix" src="/images/read-icon.png" />
+    </view>
+  </view>
+  <view class="btn_wrap" wx:if="{{lessonInfo.workType==2}}">
+    <view class="record_tit">点此开始录音，最长可录制5分钟</view>
+    <view class="record_btn">
+      <image mode="widthFix" src="/images/record-btn.png" bindtap="startVoiceRecord" hidden="{{startSpeaking}}" />
+      <image mode="widthFix" src="/images/stop-icon.png" bindtap="stopVoiceRecord" hidden="{{!startSpeaking}}" />
+    </view>
+  </view>
+  <view class="btn_wrap" wx:if="{{lessonInfo.workType==1}}">
+    <view class="record_tit">点此开始录制视频，最长可录制60秒，从相册中选择最长可选取5分钟。</view>
+    <view class="record_btn">
+      <image mode="widthFix" src="/images/video-btn.png" bindtap="chooseVideo" />
+      <!-- <view class="view_more" bindtap="chooseVideo"><text>从相册中选取</text></view> -->
+    </view>
+  </view>
+</view>
+<view class="learned_box" wx:if="{{work.isFinish}}">
+  <image mode="widthFix" src="/images/learned-icon.png" />
+  <text class="learned_txt">已学习</text>
+</view>
+
+<!--提交作业 弹层-->
+<view class="loading_layer" hidden="{{!showLayer}}">
+   <view class="close_icon" bindtap="closeLayer"><image mode="widthFix" src="/images/close.png" /></view>
+  <view class="loading_icon" hidden="{{!showLoading}}"><view ></view></view>
+  <view hidden="{{showLoading}}">
+    <view class="support_icon">
+      <image mode="widthFix" src="/images/submit-success-icon.jpg" />
+    </view>
+    <view class="tips">提交成功</view>
+    <view class="sub-tips">快把今天的成功分享给好友们吧！</view>
+    <view class="layer_btn_wrap">
+      <div class="return_home_btn" bindtap="returnHome">回到首页</div>
+      <view class="share_box" wx:if="{{lessonInfo.workType!=0}}" bindtap="chooseShareType">
+        <image class="share_btn_bg" mode="widthFix" src="/images/signin-btn-bg.png" />分享今日作业
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--作业类型是视频 则显示录制视频弹层-->
+<view class="camera_layer" wx:if="{{lessonInfo.workType==1}}" hidden="{{!showCameraLayer}}">
+  <camera class="camera_box" id="myCamera">
+    <cover-image class="take_photo" mode="widthFix" hidden="{{isRecording}}" src="/images/recording-icon.png" bindtap="startVideoRecord"></cover-image>
+    <cover-image class="stop_photo" mode="widthFix" src="/images/stop-icon.png" bindtap="stopRecord" hidden="{{!isRecording}}"></cover-image>
+    <cover-view class="time">{{durationTime}}</cover-view>
+  </camera>
+</view>
+
+<view class="speaking_layer" hidden="{{!startSpeaking}}">
+  <view class="speaking_duration">{{durationTime}}</view>
+  <image class="voice_recording_icon" mode="widthFix" src="/images/voice-recording-icon.png" />
+</view>
+
+<view class="mask" hidden="{{!isRecordFinish}}"></view>
+<!-- 录音完成 弹层 确认上传-->
+<view class="record_layer" v-if="{{lessonInfo.workType!=0}}" hidden="{{!isRecordFinish}}">
+  <view class="title">提交确认</view>
+  <view class="record_layer_content">
+    <view class="recording audio_cont" bindtap="playTempAudio" wx:if="{{lessonInfo.workType==2}}">
+      <!-- <audio id="temp_audio" class="temp_audio" src="{{tempFile.tempFilePath}}" controls poster="/images/audio-bg.jpg" /> -->
+      <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+      {{durationTime||'00:00'}}
+      <!-- <image class="play_icon" mode="widthFix" src="/images/play-icon-white.png" /> -->
+    </view>
+    <view class="recording" wx:if="{{lessonInfo.workType==1}}">
+      <video class="temp_video" poster="{{tempFile.tempThumbPath}}" src="{{tempFile.tempVideoPath}}" object-fit="contain"></video>
+    </view>
+  </view>
+  <view class="layer_btn_box">
+    <view class="main" bindtap="submitTempRecord">确定</view>
+    <view bindtap="closeVoiceLayer">取消</view>
+  </view>
+</view>
+
+<view class="share_mask" wx:if="{{lessonInfo.workType!=0}}" hidden="{{!showShareLayer}}" bindtap="closeShareLayer"></view>
+<view class="share_layer" wx:if="{{lessonInfo.workType!=0}}" hidden="{{!showShareLayer}}">
+  <view class="share_layer_title">分享给好友</view>
+  <view class="share_layer_cont">
+    <view  class="share_layer_list">
+      <image class="share_method_icon" mode="widthFix" src="/images/share-weixin-icon.png" />
+      <button id="{{item.id}}" data-type="{{item.workType}}" open-type="share" class="share_btn"></button>
+      <view class="share_text">微信</view>
+    </view>
+    <view  class="share_layer_list" bindtap="shareFriendCirlce">
+      <image class="share_method_icon" mode="widthFix" src="/images/share-friend-circle.png" />
+      <view class="share_text">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view class="share_fcircle_mask" hidden="{{!showFcircleLayer}}" bindtap="handleCloseFcircleLayer"></view>
+<view class="share_fcircle_layer" hidden="{{!showFcircleLayer}}">
+  <view class="share_fcircle_content">
+    <image class="share_image" src="{{share_image_url}}" />
+  </view>
+  <view class="footer">
+    <view class="save" bindtap="handleSaveShareImg">保存到相册</view>
+    <view class="close" bindtap="handleCloseFcircleLayer">关闭</view>
+  </view>
+</view>

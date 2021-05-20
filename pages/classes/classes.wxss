@@ -1,0 +1,60 @@
+/**classes.wxss**/
+page{
+  background: #f5f5f5;
+  border-top: 1px solid #d5d5d5;
+}
+image{
+  height: auto;
+}
+.content{
+  padding: 0 30rpx;
+}
+.item{
+  margin-top: 30rpx;
+  position: relative;
+  border-radius: 20rpx;
+  font-size: 0;
+}
+.item_pic{
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.course_name{
+  background: #fff;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+.classes_box{
+  margin-top: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.list{
+  width: 48%;
+  background: #fff;
+  padding: 25rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  color: #000;
+  font-weight: bold;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.classes_icon{
+  width: 80rpx;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.arrow_icon{
+  float: right;
+  width: 20rpx;
+  margin-top: 36rpx;
+}

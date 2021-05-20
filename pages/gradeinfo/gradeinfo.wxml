@@ -1,0 +1,20 @@
+<!--gradeinfo.wxml-->
+<view class="grade_head">
+  <view class="line"></view>
+  <text class="grade_title">{{gradeInfo.name}}</text>
+</view>
+<view class="course_box" wx:if="{{courseList.length>0}}">
+  <view class="course_list" wx:for="{{courseList}}" wx:key="{{item.id}}">
+    <navigator url="/pages/course/course?id={{item.id}}">
+      <image class="course_pic" src="{{item.images}}" mode="widthFix"></image>
+      <view class="course_info">
+        {{item.name}}<text  class="section_num">(共{{item.lessonNum}}节)</text>
+        <image class="arrow_icon" mode="widthFix" src="/images/arrow-right.png" />
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class="nodata_tips" wx:else>
+  <image mode="widthFix" src="/images/no-course-icon.png" />
+</view>

@@ -1,0 +1,44 @@
+<!--course.wxml-->
+<view class="head">
+  <image class="course_pic" src="{{courseInfo.images}}" mode="widthFix"></image>
+  <view class="course_info">
+    <view>{{courseInfo.name}}</view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="cont_hd">
+    <view class="line"></view>
+    课程目录
+    <view class="course_count">{{courseInfo.finishNum}}/{{courseInfo.lessonNum}}节</view>
+  </view>
+  <view class="item" wx:for="{{lessonList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="gotoStudy">
+    
+    <view class="course_order">
+      <image src="/images/course-order-bg.png" mode="widthFix" />
+      <view class="order_num">{{index+1}}</view>
+    </view>
+    <view class="info">
+      <image class="arrow_icon" mode="widthFix" src="/images/arrow-right.png" />
+      <view class="info_top"><text class="course_name">{{item.name}}</text>（{{item.isFinish==1?'已完成':'未完成'}}<image class="star_icon" src="{{item.isFinish==1?'../../images/star-hot-icon.png':'../../images/star-icon.png'}}" mode="widthFix"></image>）</view>
+      <view class="list_box">
+        <view class="list" wx:if="{{item.isVideo==1}}">
+          <image class="checkbox_icon" mode="widthFix" src="/images/checkbox-icon.png" />
+          视频
+        </view>
+        <view class="list" wx:if="{{item.isVoice==1}}">
+          <image class="checkbox_icon" mode="widthFix" src="/images/checkbox-icon.png" />
+          音频
+        </view>
+        <view class="list" wx:if="{{item.isImage==1}}">
+          <image class="checkbox_icon" mode="widthFix" src="/images/checkbox-icon.png" />
+          图片
+        </view>
+        <view class="list" wx:if="{{item.isText==1}}">
+          <image class="checkbox_icon" mode="widthFix" src="/images/checkbox-icon.png" />
+          课文
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

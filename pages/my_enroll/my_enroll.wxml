@@ -1,0 +1,34 @@
+<!--pages/enroll/enroll.wxml-->
+<view class="wrap">
+  <view class="title">报考记录</view>
+  <view class="record">
+    
+    <view class="item" bindtap='gotoDetail'>
+      <view class="icon"><image class="icon_image" mode="widthFix" src="/images/enroll-record-icon.jpg"></image></view>
+      <view class="info">
+        <view class="info_tit mb-40">语言艺术(朗诵)专业考级</view>
+        <view class="mb-40">
+          <text>考生姓名：黄小明</text>
+          <text class="level">报考等级：二级</text>
+        </view>
+        <view class="mb-40">报考时间：2021-03-15</view>
+        <view class="mb-40">考点：福建在线考点</view>
+      </view>
+    </view>
+
+    <view class="item" bindtap='gotoDetail'>
+      <view class="icon"><image class="icon_image" mode="widthFix" src="/images/enroll-record-icon.jpg"></image></view>
+      <view class="info">
+        <view class="info_tit mb-40">语言艺术(朗诵)专业考级</view>
+        <view class="mb-40">
+          <text>考生姓名：黄小明</text>
+          <text class="level">报考等级：二级</text>
+        </view>
+        <view class="mb-40">报考时间：2021-03-15</view>
+        <view class="mb-40">考点：福建在线考点</view>
+      </view>
+    </view>
+
+  </view>
+</view>
+

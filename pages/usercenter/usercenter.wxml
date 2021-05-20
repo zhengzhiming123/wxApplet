@@ -1,0 +1,55 @@
+<!--usercenter.wxml-->
+<view class="head">
+  <open-data class="avatar" mode="widthFix"  type="userAvatarUrl"></open-data>
+  <!-- <image class="avatar" mode="widthFix" src="/images/avatar.png"></image> -->
+  <view class="user_info">
+    <view class="info_top">
+      <text class="user_name">{{userInfo.name}}</text>
+      <text class="age">{{userInfo.age}}岁</text>
+      <image class="sex_icon" mode="widthFix" src="{{userInfo.gender==0?'/images/male-icon.png':'/images/female-icon.png'}}"></image>
+      <image class="setting_icon" mode="widthFix" src="/images/setting-icon.png" bindtap='gotoUserInfo'></image>
+    </view>
+    <view class="class_info" wx:if="{{userInfo.isStudent}}">
+      <text class="level">{{userInfo.gradeName}}</text>
+      <text class="classes">（{{userInfo.className}}）</text>
+    </view>
+    <view class="integral">{{userInfo.points}} 积分</view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="item">
+    <text class="title">语言艺术专业考级</text>
+  </view>
+  <view class="item" bindtap='gotoEnroll'>
+    <image class="item_icon" mode="widthFix" src="/images/enroll-icon.png"></image>
+    <text class="item_name">我的报名</text>
+    <image class="arrow_right" mode="widthFix" src="/images/arrow-right.png"></image>
+  </view>
+</view>
+
+<view class="content">
+  <view class="item" bindtap='gotoHomework'>
+    <image class="item_icon" mode="widthFix" src="/images/homework-icon.png"></image>
+    <text class="item_name">历史作业</text>
+    <image class="arrow_right" mode="widthFix" src="/images/arrow-right.png"></image>
+  </view>
+  <!-- <view class="item">
+    <image class="item_icon" mode="widthFix" src="/images/record-icon.png"></image>
+    <text class="item_name">本地录音</text>
+    <image class="arrow_right" mode="widthFix" src="/images/arrow-right.png"></image>
+  </view> -->
+  <view class="item" bindtap='gotoIntegral'>
+    <image class="item_icon" mode="widthFix" src="/images/integral-icon.png"></image>
+    <text class="item_name">积分明细</text>
+    <image class="arrow_right" mode="widthFix" src="/images/arrow-right.png"></image>
+  </view>
+  <view class="item" bindtap='loginOut'>
+    <image class="item_icon" mode="widthFix" src="/images/login-out.png"></image>
+    <text class="item_name">退出</text>
+    <image class="arrow_right" mode="widthFix" src="/images/arrow-right.png"></image>
+  </view>
+</view>
+
+<!--签到-->
+<checkIn id="checkIn"></checkIn>

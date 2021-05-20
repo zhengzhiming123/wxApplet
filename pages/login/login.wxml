@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="outer_box">
+  <view class="logo_wrap">
+    <image class="login_bg" src="../../images/login-bg.png" mode="widthFix"></image>
+  </view>
+  <view class="login_title">欢迎登录</view>
+  <view class="login_content">
+    <view class="ipt_list">
+      <input type="text" class="login_ipt" bindinput='mobileInput' placeholder="请输入手机号码"></input>
+    </view>
+    <view class="ipt_list">
+      <input type="text" class="sms_ipt" bindinput='codeInput' placeholder="请输入验证码"></input>
+      <view class="send_sms" hidden="{{showCountDown}}" bindtap='getCode'>发送验证码</view>
+      <view class="count_down" hidden="{{!showCountDown}}">{{countDownSecond}}s后重新获取</view>
+    </view>
+    <view class="login_btn_box" bindtap='login'>
+      <image class="login_btn_bg" src="/images/login-btn-bg.png"></image>
+      立即登录
+    </view>
+    <view class="login_btm">
+      <!-- <text class="forgetpwd_btn">忘记密码</text> -->
+      <navigator class="reg_btn" url='/pages/reg/reg'>立即注册</navigator>
+    </view>
+  </view>
+</view>

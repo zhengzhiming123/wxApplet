@@ -1,0 +1,117 @@
+/**usercenter.wxss**/
+page{
+  background: #f5f5f5
+}
+image{
+  height: auto;
+}
+.head{
+  background: #4956e0;
+  display: flex;
+  align-items:center;
+  padding: 30rpx;
+  position: relative;
+}
+.avatar{
+  width: 100rpx;
+  height: 100rpx; 
+  border-radius: 50%;
+  display:block; 
+  overflow:hidden; 
+}
+.user_info{
+  margin-left: 25rpx;
+  flex: 1;
+}
+.user_name{
+  font-size: 36rpx;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 340rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.age{
+  color: #efefef;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+}
+.sex_icon{
+  width: 26rpx;
+  margin-left: 10rpx;
+}
+.setting_icon{
+  position: absolute;
+  top: 35rpx;
+  right: 20rpx;
+  width: 36rpx;
+}
+
+.class_info{
+  margin-top: 20rpx;
+  color: #efefef;
+  font-size: 26rpx;
+}
+.level {
+  color: #efefef;
+  font-size: 25rpx;
+}
+.classes{
+  color: #efefef;
+  margin-left: 15rpx;
+  font-size: 25rpx;
+}
+.integral{
+  position: absolute;
+  right: 20rpx;
+  bottom: 35rpx;
+  background: #fff;
+  padding: 2px 10px;
+  color: #5863e3;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+
+.content{
+  margin-top: 30rpx;
+  background: #fff;
+}
+.item{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #eee;
+  margin-left: 30rpx;
+  color: #010101;
+}
+.title{
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  position: relative;
+}
+.title:after{
+  content:'';
+  width: 3px;
+  height: 26rpx;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #4a56e1;
+}
+.item_icon{
+  width: 50rpx;
+  vertical-align: middle;
+}
+.item_name{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #000;
+}
+.arrow_right{
+  float: right;
+  margin-right: 30rpx;
+  width: 18rpx;
+  margin-top: 35rpx;
+}

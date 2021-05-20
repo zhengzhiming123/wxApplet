@@ -1,0 +1,24 @@
+<!--checkin.wxml-->
+<view class="checkin_icon" wx:if="{{!isSignIn}}" bindtap="showCheckinPanel"><image class="checkin_image" mode="widthFix" src="/images/integral-get-icon.png" /></view>
+
+<!-- 签到-->
+<!-- <view class="mask" wx:if="{{showCheckIn}}"></view>
+<view class="signin_layer" wx:if="{{showCheckIn}}">
+  <view class="signin_hd">
+    <image class="signin-bg" mode="widthFix" src="/images/signin-bg.png" />
+    <view class="signin_title">签到可获得积分+1
+      <image class="close_icon" mode="widthFix" src="/images/close-icon.png" bindtap="closeSignin" />
+    </view>
+  </view>
+  <view class="layer_cont">
+    <view class="integral_tit">我的积分</view>
+    <view class="integral_box">
+      <image class="integral_star" mode="widthFix" src="/images/integral-star.png" />
+      25
+    </view>
+    <view class="signin_btn" bindtap="doCheckIn">
+      <image mode="widthFix" class="signin_btn_image" src="/images/signin-btn-bg.png" />
+      <view class="signin_text">立即签到</view>
+    </view>
+  </view>
+</view> -->

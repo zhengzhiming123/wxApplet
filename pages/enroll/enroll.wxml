@@ -1,0 +1,155 @@
+<!--pages/enroll/enroll.wxml-->
+<view class="content">
+  <view class="item">
+    <view class="item_tit">考生姓名</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请输入姓名" bindinput='studentNameInput'></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考生性别</view>
+    <view class="item_val">
+      <radio-group bindchange="genderChange">
+        <label class="radio_wrap">
+          <radio class="radio" value="r1" name="gender" checked="true"/>
+          <image class="gender_icon" mode="widthFix" src="/images/male-icon.png"></image>
+          男
+        </label>
+        <label class="radio_wrap">
+          <radio class="radio" name="gender" value="r2" />
+          <image class="gender_icon" mode="widthFix" src="/images/female-icon.png"></image>
+          女
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">证件类别</view>
+    <view class="item_val">
+      <picker bindchange="bindCertPickerChange" value="{{certIndex}}" range="{{certificatesData}}">
+        <view class="picker">
+          <view>{{certificatesData[certIndex]}}</view>
+          <image mode="widthFix" class="arrow_down" src="/images/arrow-down.png"></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">身份证号</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请输入身份证号" bindinput="IDCardChange"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">出生日期</view>
+    <view class="item_val">
+      <picker mode="date" value="{{birthday}}" start="1900-01-01" bindchange="bindBirthdayChange">
+        <view class="picker">
+          <view>{{birthday||'请选择出生日期'}}</view>
+          <image mode="widthFix" class="arrow_down" src="/images/date-icon.png"></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考生国籍</view>
+    <view class="item_val">中国</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考生民族</view>
+    <view class="item_val">汉</view>
+  </view>
+  <view class="item">
+    <view class="item_tit">就读学校</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请输入就读学校" bindchange="schoolChange"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">联系地址</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="选填" bindchange="addressChange"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">二寸照片</view>
+    <view class="item_val">
+      <view class="upFile" style="border-radius: 5px" wx:if="{{uploadPhoto}}">
+        <image class="itemImv" src="{{uploadPhoto}}"></image>
+        <image class="closeImv" src="/images/close.png" mode="scaleToFill" catchtap="deleteImvPhoto" data-id="{{index}}"></image>
+      </view>
+      <view class="chooseView" bindtap="choosePhoto" style="border-radius: 5px" wx:if="{{!uploadPhoto}}">
+        <image class="chooseImv" src="/images/add-icon.jpg"></image>
+        <view class="upload_tip">请上传两寸身份照片，大小不超过500K</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="item">
+    <view class="item_tit">考试级别</view>
+    <view class="item_val">
+      <picker bindchange="bindLevelPickerChange" value="{{levelIndex}}" range="{{levelData}}">
+        <view class="picker">
+          <view>{{levelData[levelIndex]}}</view>
+          <image mode="widthFix" class="arrow_down" src="/images/arrow-down.png"></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">机构地点</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请输入机构地址" bindchange="orgChange"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">确认地点</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请确认地址" bindchange="orgAddressChange"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">考试地址</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请输入考试地址" bindchange="examChange"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">联系手机</view>
+    <view class="item_val">
+      <input class="ipt" type="text" placeholder="请输入11位手机号" value="" bindinput='mobileInput'></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_tit">联系手机</view>
+    <view class="captcha_wrap">
+      <input class="captcha_ipt" type="text" placeholder="请输入4位验证码" value=""></input>
+      <view class="captcha_aside">
+        <view class="send_sms" hidden="{{showCountDown}}" bindtap='getCode'>发送验证码</view>
+        <view class="count_down" hidden="{{!showCountDown}}">{{countDownSecond}}s后重新获取</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="submit_btn" bindtap="doSubmit">
+  <image class="btn_bg" src="/images/login-btn-bg.png"></image>
+  确认提交
+</view>
+
+<view class="pay_wrap" hidden="{{!showPayResult}}">
+  <view class="res_cont">
+    <image class="pay_success_icon" src="/images/pay-success-icon.jpg"></image>
+    <view class="res_text">订单支付成功￥102.00</view>
+    <view class="res_btn_wrap">
+      <view class="res_btn">
+        <image class="view_order_btn" src="/images/view-order-btn.png"></image>
+      </view>
+      <view class="return_home_btn">
+        返回首页
+      </view>
+    </view>
+  </view>
+</view>

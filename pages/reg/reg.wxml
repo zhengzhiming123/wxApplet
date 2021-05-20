@@ -1,0 +1,77 @@
+<!--reg.wxml-->
+<view class="reg_head">
+  <image src="/images/reg-header.jpg" mode="widthFix"></image>
+</view>
+<view class="reg_box">
+  <view class="reg_title"><view class="line"></view>学生信息</view>
+  <view class="reg_item">
+    <text class="item_tit">学生姓名</text>
+    <input class="reg_ipt" placeholder="请输入姓名" placeholder-class="weak" value="{{name}}" bindinput="changeName" maxlength="10"></input>
+  </view>
+  <view class="reg_item">
+    <text class="item_tit">出生日期</text>
+    <picker mode="date" bindchange="bindDateChange">
+      <view class="reg_ipt {{user.birthday?'':'weak'}}">{{user.birthday?user.birthday:'请选择出生日期'}}<image class="date_icon" mode="widthFix" src="/images/date-icon.png"></image></view>
+    </picker>
+  </view>
+  <view class="reg_item">
+    <text class="item_tit">性别</text>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label>
+        <radio value="0" class="radio_icon" checked="true" /><image class="sex_icon" src="/images/male-icon.png" mode="widthFix"></image>男
+      </label>
+      <label class="radio_right">
+        <radio value="1" class="radio_icon" /><image class="sex_icon" src="/images/female-icon.png" mode="widthFix"></image>女
+      </label>
+    </radio-group>
+  </view>
+  <view class="reg_item">
+    <text class="item_tit">在读学校</text>
+    <input class="reg_ipt" placeholder="请填写在读学校" placeholder-class="weak" value="{{schoolName}}" bindinput="changeSchool" maxlength="30"></input>
+  </view>
+  <view class="reg_item">
+    <text class="item_tit">手机号</text>
+    <input type="number" class="reg_ipt" placeholder="请输入手机号码" placeholder-class="weak" value="{{mobile}}" bindinput="changeMobile" maxlength="11"></input>
+  </view>
+  <view class="reg_item pos_relative">
+    <text class="item_tit">验证码</text>
+    <input class="reg_ipt sms_ipt" placeholder="请输入验证码" placeholder-class="weak" value="{{verifyCode}}" bindinput="changeVerifyCode"></input>
+    <view class="send_sms" bindtap="sendSms" hidden="{{showCountDown}}">发送验证码</view>
+    <view class="count_down" hidden="{{!showCountDown}}">{{countDownSecond}}s后重新获取</view>
+  </view>
+  <view class="reg_item">
+    <text class="item_tit">类型</text>
+    <radio-group class="radio-group" bindchange="radioTypeChange">
+      <label>
+        <radio value="1" class="radio_icon" checked="true" />游客
+      </label>
+      <label class="radio_right">
+        <radio value="2" class="radio_icon" />学员
+      </label>
+    </radio-group>
+  </view>
+  <view wx:if="{{user.userType==2}}">
+    <view class="reg_item">
+      <text class="item_tit">学习阶段</text>
+      <picker mode="selector" value="{{gradeIndex}}" bindchange="bindLevelChange" range="{{gradeList}}" range-key="name">
+        <view class="reg_ipt {{gradeIndex>0?'':'weak'}}">{{gradeList[gradeIndex].name}}<image class="arrow_icon" mode="widthFix" src="/images/arrow-down.png"></image></view>
+      </picker>
+    </view>
+    <view class="reg_item">
+      <text class="item_tit">学习班级</text>
+      <picker mode="selector" value="{{classesIndex}}" bindchange="bindClassesChange" range="{{classesList}}" range-key="name">
+        <view class="reg_ipt">{{classesList[classesIndex].name}}<image class="arrow_icon" mode="widthFix" src="/images/arrow-down.png"></image></view>
+      </picker>
+    </view>
+    <view class="reg_item">
+      <text class="item_tit">邀请码</text>
+      <input class="reg_ipt" placeholder="请输入邀请码" placeholder-class="weak" value="{{code}}" bindinput="changeCode"></input>
+    </view>
+  </view>
+</view>
+
+<view class="reg_btn_box">
+  <image class="reg_btn_bg" src="/images/reg-btn-bg.png"></image>
+  立即注册
+  <button class="reg_btn" open-type="getUserInfo" bindgetuserinfo="doReg"></button>
+</view>

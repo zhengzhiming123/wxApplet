@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/classes/classes",
+    "pages/lesson_view/lesson_view",
+    "pages/student/student",
+    "pages/gradation/gradation",
+    "pages/gradeinfo/gradeinfo",
+    "pages/course/course",
+    "pages/integral/integral",
+    "pages/userinfo/userinfo",
+    "pages/local_recording/local_recording",
+    "pages/exhibition/exhibition",
+    "pages/usercenter/usercenter",
+    "pages/task_history/task_history",
+    "pages/share_video/share_video",
+    "pages/share_audio/share_audio",
+    "pages/reg/reg",
+    "pages/my_enroll/my_enroll",
+    "pages/enroll_detail/enroll_detail",
+	  "pages/enroll/enroll"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8c8c8c",
+    "selectedColor": "#4956e0",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "selectedIconPath": "images/nav_index_on.png",
+        "iconPath": "images/nav_index.png",
+        "pagePath": "pages/index/index",
+        "text": "在线学习"
+      },
+      {
+        "selectedIconPath": "images/nav_rank_on.png",
+        "iconPath": "images/nav_rank.png",
+        "pagePath": "pages/exhibition/exhibition",
+        "text": "在线作业"
+      },
+      {
+        "selectedIconPath": "images/nav_user_on.png",
+        "iconPath": "images/nav_user.png",
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

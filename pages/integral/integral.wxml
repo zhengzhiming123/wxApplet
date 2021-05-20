@@ -1,0 +1,29 @@
+<!--integral.wxml-->
+<view class="head">
+  <picker mode="date" fields="month" value="{{serviceData.date}}" bindchange="bindDateChange">
+    <view class="date_picker">
+      <image class="date_icon" mode="widthFix" src="/images/date-icon.png" />{{serviceData.date}}
+    </view>
+  </picker>
+  <view class="statistics">
+    <view class="total_get">共获得积分： {{totalIn}}</view>
+    <view class="total_pay">共消耗积分： {{totalOut}}</view>
+  </view>
+</view>
+
+<view class="content" wx:if="{{pointsList.length > 0}}">
+  <view class="item" wx:for="{{pointsList}}" wx:key="{{item.id}}">
+    <image class="integral_icon" mode="widthFix" src="{{item.inOut==0?'/images/integral-get-icon.png':'/images/integral-consume-icon.png'}}" />
+    <view class="integral_info">
+      <view class="item_name">
+        {{item.remark}}{{item.inOut==0?'获得积分':'消耗积分'}}
+        <view class="integral_num {{item.inOut==0?'':'subtract'}}">{{item.inOut==0?'+':'-'}}{{item.point}}</view>
+      </view>
+      <view class="item_date">{{item.createDate}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="nodata_tips" wx:if="{{pointsList.length == 0}}">
+  <image mode="widthFix" src="/images/no-integral-icon.png" />
+</view>

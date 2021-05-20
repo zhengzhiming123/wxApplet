@@ -1,0 +1,27 @@
+/* pages/enroll/enroll.wxss */
+page{
+  background: #f6f6f6;
+}
+.content{
+  margin: 25rpx;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0 40rpx;
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  padding: 25rpx 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+.item_tit{
+  color: #000;
+}
+.item_val{
+  color: #5755c0;
+}
+.enroll_pic{
+  width: 160rpx;
+  height: 160rpx;
+}

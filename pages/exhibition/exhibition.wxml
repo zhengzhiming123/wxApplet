@@ -1,0 +1,115 @@
+<!--exhibition.wxml-->
+<view class="show_hd">
+  <image class="show_banner" mode="widthFix" src="/images/show-banner.png"></image>
+</view>
+<view class="content" wx:if="{{workList.length>0}}">
+  <view class="item" wx:for="{{workList}}" wx:key="item.id">
+    <image class="avatar" mode="widthFix" src="{{item.avatar}}" />
+    <view class="info">
+      <view class="ranking">
+        <image wx:if="{{index<3}}" mode="widthFix" src="/images/medal{{index+1}}.png" />
+        <text wx:if="{{index>2}}">{{index+1}}</text>
+      </view>
+      <view class="info_top">
+        <text class="info_name">{{item.memberName}}</text>
+        <!-- <text class="age">7岁</text>
+        <image class="sex_icon" mode="widthFix" src="/images/female-icon.png" /> -->
+      </view>
+      <view  class="info_middle">
+        {{item.gradeName}}<text class="classes" wx:if="{{item.className}}">({{item.className}})</text>
+      </view>
+      <view class="info_bottom">
+        {{item.courseLessonName}} {{item.courseName}}
+        <view class="btn_wrap">
+          <!-- <video wx:if="{{item.workType == 1}}" id="{{item.id}}" class="videoTag" src="{{item.url}}" /> -->
+          <image class="play_btn" mode="widthFix" src="/images/play-icon.png" wx:if="{{item.workType != 0}}" bindtap="showWork" data-type="{{item.workType}}" data-url="{{item.url}}" data-lesson="{{item.courseLessonName}}" data-course="{{item.courseName}}" data-id="{{item.id}}" />
+          <view class="line" wx:if="{{item.workType != 0}}"></view>
+          <view class="share_box" wx:if="{{item.workType != 0}}" id="{{item.id}}" data-type="{{item.workType}}" bindtap="chooseShareType">
+            <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="content">
+  <view class="item">
+    <image class="avatar" mode="widthFix" src="/images/avatar.png" />
+    <view class="info">
+      <view class="ranking">
+        <image wx:if="{{index<3}}" mode="widthFix" src="/images/medal{{index+1}}.png" />
+        <text wx:if="{{index>2}}">{{index+1}}</text>
+      </view>
+      <view class="info_top">
+        <text class="info_name">sdfs</text>
+      </view>
+      <view  class="info_middle">
+        sdfds
+      </view>
+      <view class="info_bottom">
+        sdfsdf
+        <view class="btn_wrap">
+          <view class="video_wrap">
+            <video id="video1" class="videoTag" src="http://yzyd-1259468534.cos.ap-shanghai.myqcloud.com/443d2015-b782-4416-b34e-245c7ba65235.webm" />
+            <image class="play_btn" mode="widthFix" src="/images/play-icon.png" bindtap="showWork" data-url="/images/1.ogg" />
+          </view>
+          <view class="line"></view>
+          <view class="share_box">
+            <image class="share_icon" src="/images/share-icon.png" mode="widthFix"></image>
+            <button open-type="share" class="share_btn">分享</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view class="no-data" wx:if="{{workList.length == 0}}">
+  <image mode="widthFix" src="/images/no-work-icon.png" />
+</view>
+
+<view class="mask" hidden="{{!showLayer}}"></view>
+<view class="layer" hidden="{{!showLayer}}">
+  <video wx:if="{{curWork.type==1}}" class="layer_videos" controls src="{{curWork.url}}" />
+  <view wx:if="{{curWork.type==2}}">
+    <view class="recording audio_cont" bindtap="playAudio" data-url="{{curWork.url}}">
+      {{curWork.lesson}} {{curWork.course}}
+      <image class="voice_icon" mode="widthFix" src="/images/voice-icon.png" />
+    </view>
+  </view>
+  
+  <view class="layer-btn" bindtap="closeLayer">关闭</view>
+</view>
+
+<view class="more_btn"><navigator url="../gradation/gradation?type=class">查看全部学生作品</navigator></view>
+
+<!--签到-->
+<checkIn id="checkIn"></checkIn>
+
+<view class="share_mask" wx:if="{{lessonInfo.workType!=0}}" hidden="{{!showShareLayer}}" bindtap="closeShareLayer"></view>
+<view class="share_layer" wx:if="{{lessonInfo.workType!=0}}" hidden="{{!showShareLayer}}">
+  <view class="share_layer_title">分享给好友</view>
+  <view class="share_layer_cont">
+    <view  class="share_layer_list">
+      <image class="share_method_icon" mode="widthFix" src="/images/share-weixin-icon.png" />
+      <button id="{{item.id}}" data-type="{{item.workType}}" open-type="share" class="share_btn"></button>
+      <view class="share_text">微信</view>
+    </view>
+    <view  class="share_layer_list" bindtap="shareFriendCirlce">
+      <image class="share_method_icon" mode="widthFix" src="/images/share-friend-circle.png" />
+      <view class="share_text">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view class="share_fcircle_mask" hidden="{{!showFcircleLayer}}" bindtap="handleCloseFcircleLayer"></view>
+<view class="share_fcircle_layer" hidden="{{!showFcircleLayer}}">
+  <view class="share_fcircle_content">
+    <image class="share_image" src="{{share_image_url}}" />
+  </view>
+  <view class="footer">
+    <view class="save" bindtap="handleSaveShareImg">保存到相册</view>
+    <view class="close" bindtap="handleCloseFcircleLayer">关闭</view>
+  </view>
+</view>

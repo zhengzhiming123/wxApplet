@@ -1,0 +1,66 @@
+/**student.wxss**/
+page{
+  background: #f5f5f5;
+  border-top: 1px solid #d5d5d5;
+}
+image{
+  height: auto;
+}
+.content{
+  padding: 0 30rpx;
+}
+.item{
+  margin-top: 30rpx;
+  position: relative;
+  border-radius: 20rpx;
+  font-size: 0;
+}
+.item_pic{
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.course_name{
+  background: #fff;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+.classes{
+  margin-left: 5px;
+  font-size: 24rpx;
+  font-weight: normal;
+}
+
+.student_box{
+  margin: 20rpx 0;
+  background: #fff;
+  padding-left: 20rpx;
+}
+.list{
+  padding: 20rpx 30rpx 26rpx 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+.avatar{
+  width: 80rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.name{
+  font-size: 30rpx;
+  color: #000;
+  margin-left: 20rpx;
+}
+.sex_icon{
+  width: 30rpx;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.arrow_icon{
+  float: right;
+  width: 18rpx;
+  margin-top: 20rpx;
+}

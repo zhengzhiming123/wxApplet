@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "言之有道",
+  "usingComponents": {
+    "checkIn": "/components/checkin/index"
+  }
+}

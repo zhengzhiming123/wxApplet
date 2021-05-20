@@ -1,0 +1,41 @@
+<view class="content_box">
+  <view class="audio_wrap">
+    <image class="autio_bg" src="/images/audio-bg.jpg" />
+    <view class="audioControls">
+      <view class="flex">
+        <view class="bottom" catchtap="playAudio">
+          <view class="audio_control_icon" wx:if="{{isPlayAudio}}"><image mode="widthFix" src="/images/audio-pause-icon.png" /></view>
+          <view class="audio_control_icon" wx:else><image mode="widthFix" src="/images/audio-play-icon.png" /></view>
+        </view>
+        <view class="slider">
+          <slider bindchange="sliderChange" active-color="red" block-size="12" value="{{audioTime}}"></slider>
+        </view>
+        <view class="time">
+          {{showTime1}}/{{showTime2}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="sharer_box">
+  <view class="share_avatar">
+    <image src="{{member.avatar}}" />
+  </view>
+  <view class="sharer">
+    <view class="triangle"></view>
+    <view class="sharer_text">嘿~我是<text class="color_blue">{{member.name}}</text>同学</view>
+    <view class="sharer_text">这是我今天辛苦录制的视频作业，来看看吧</view>
+    <view class="sharer_text">记得给我点赞哦！</view>
+  </view>
+</view>
+
+<view class="support_box">
+  <view class="support_text">{{member.name}}同学已经收获<image class="support_icon" src="/images/support-icon.png" /><text class="color_blue">{{workInfo.likeNum}}</text>个赞</view>
+  
+  <view class="return_btn" bindtap="supportWork">
+    <image class="return_btn_bg" mode="widthFix" src="/images/login-btn-bg.png"></image>
+    给TA点赞
+  </view>
+  <view class="enter_home" bindtap="enterHome" wx:if="{{showHomeBtn}}">进入言之有道</view>
+</view>

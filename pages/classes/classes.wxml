@@ -1,0 +1,17 @@
+<!--classes.wxml-->
+<view class="content">
+  <view class="item">
+    <image class="item_pic" mode="widthFix" src="{{gradeInfo.images}}" />
+    <view class="course_name">{{gradeInfo.name}}</view>
+  </view>
+  
+  <view class="classes_box">
+    <view class="list" wx:for="{{classesList}}" wx:key="{{item.id}}" data-id="{{item.id}}">
+      <navigator url="../student/student?id={{item.id}}">
+        <image class="classes_icon" mode="widthFix" src="/images/classes-icon.png" />
+        {{item.name}}
+        <image class="arrow_icon" mode="widthFix" src="/images/arrow-right.png" />
+      </navigator>
+    </view>
+  </view>
+</view>
